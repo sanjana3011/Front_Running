@@ -51,26 +51,38 @@ public class Detection {
                 b2 = present.isTradePlaced();
                 b3 = future.isTradePlaced();
 
+//                  Scenario 1      
                 if (c1.equals(c3) && !(c1.equals(c2)) && b1 && b2 && b3) {
                     String bs1, bs2, bs3;
-//                 Here bs1,bs2,bs3 say whether it is a buy or sell option
+//                  Here bs1,bs2,bs3 say whether it is a buy or sell option
                     bs1 = past.getBuySell();
                     bs2 = present.getBuySell();
                     bs3 = future.getBuySell();
 
-                    double tS2;
+                    double tP1,tP2,tP3;
 //                  Here tS2 is the total share price of the middle customer
-                    tS2 = present.getTotalPrice();
-
-                    if (bs1.equals(bs2) && !(bs2.equals(b3)) && tS2 >=basePrice)
+                    tP2 = present.getTotalPrice();
+  
+                    if (bs1.equals("B") && bs2.equals("B") && bs3.equals(present) && tP2 >=basePrice)
                     {
                         Order[] tempBatch = new Order[3];
+                        
+                        past.setScenario("1");
+                        present.setScenario("1");
+                        future.setScenario("3");
                         tempBatch[0] = past;
                         tempBatch[1] = present;
                         tempBatch[2] = future;
-                        
+                     
                         possibleFrontRunning.add(tempBatch);
                     }
+                                        
+                }
+
+//              Scenario 2
+                if(!(c1.equals(c2)) && b1 && b2)
+                {
+                    
                 }
 
             }
