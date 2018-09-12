@@ -18,18 +18,16 @@ public class Order {
     private double sharePrice;
     private double shareQuantity;
     private double totalPrice;
-    private String traderId; 
+    private String traderId;
     private boolean tradePlaced;
     private Date timeStamp;
-    
+    private String scenario;
 
     public Order() {
         super();
     }
 
-    public Order(String customerId, String buySell, double sharePrice, double shareQuantity, double totalPrice,
-            String traderId, boolean tradePlaced, Date timeStamp) {
-        super();
+    public Order(String customerId, String buySell, double sharePrice, double shareQuantity, double totalPrice, String traderId, boolean tradePlaced, Date timeStamp, String scenario) {
         this.customerId = customerId;
         this.buySell = buySell;
         this.sharePrice = sharePrice;
@@ -38,6 +36,7 @@ public class Order {
         this.traderId = traderId;
         this.tradePlaced = tradePlaced;
         this.timeStamp = timeStamp;
+        this.scenario = scenario;
     }
 
     public String getCustomerId() {
@@ -102,6 +101,14 @@ public class Order {
 
     public void setTimeStamp(Date timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public String getScenario() {
+        return scenario;
+    }
+
+    public void setScenario(String scenario) {
+        this.scenario = scenario;
     }
 
 }
