@@ -14,6 +14,8 @@ import java.util.Date;
 public class Order {
 
     private String customerId;
+    private String shareName;
+    private String shareId;
     private String buySell;
     private double sharePrice;
     private double shareQuantity;
@@ -22,13 +24,16 @@ public class Order {
     private boolean tradePlaced;
     private Date timeStamp;
     private String scenario;
+    private String customerTrade;
 
     public Order() {
         super();
     }
 
-    public Order(String customerId, String buySell, double sharePrice, double shareQuantity, double totalPrice, String traderId, boolean tradePlaced, Date timeStamp, String scenario) {
+    public Order(String customerId, String shareName, String shareId, String buySell, double sharePrice, double shareQuantity, double totalPrice, String traderId, boolean tradePlaced, Date timeStamp, String scenario, String customerTrade) {
         this.customerId = customerId;
+        this.shareName = shareName;
+        this.shareId = shareId;
         this.buySell = buySell;
         this.sharePrice = sharePrice;
         this.shareQuantity = shareQuantity;
@@ -37,7 +42,10 @@ public class Order {
         this.tradePlaced = tradePlaced;
         this.timeStamp = timeStamp;
         this.scenario = scenario;
+        this.customerTrade = customerTrade;
     }
+
+    
 
     public String getCustomerId() {
         return customerId;
@@ -45,6 +53,22 @@ public class Order {
 
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
+    }
+
+    public String getShareName() {
+        return shareName;
+    }
+
+    public void setShareName(String shareName) {
+        this.shareName = shareName;
+    }
+
+    public String getShareId() {
+        return shareId;
+    }
+
+    public void setShareId(String shareId) {
+        this.shareId = shareId;
     }
 
     public String getBuySell() {
@@ -110,5 +134,16 @@ public class Order {
     public void setScenario(String scenario) {
         this.scenario = scenario;
     }
+
+    public String getCustomerTrade() {
+        return customerTrade;
+    }
+
+    public void setCustomerTrade(String customerTrade) {
+        this.customerTrade = customerTrade;
+    }
+    
+    
+    
 
 }
