@@ -50,6 +50,17 @@ public class Utility {
         System.out.println(result);
         
         System.out.println("333333333333333333333333333333333333");
+		
+//	dematacc
+	int dematOne = 1;
+//		if required we have to assert length less than equal to 8 but no requirement I can see now
+        int dematTwo = 1;
+        String dematAccOne = Integer.toString(dematOne);
+        String dematAccTwo = Integer.toString(dematTwo);
+        String zeroOne = new String(new char[8-dematAccOne.length()]).replace("\0", "0");
+        String zeroTwo = new String(new char[8-dematAccTwo.length()]).replace("\0", "0");
+        String dematAcc = dematAccOne+zeroOne+zeroTwo+dematAccTwo;
+        System.out.println(dematAcc);
         
 	}
 
