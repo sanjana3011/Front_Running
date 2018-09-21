@@ -76,39 +76,36 @@ public class Utility {
 
         
 //		scaling operation random generation
-		double price = 100d;
-		double volatility =10d;
-        boolean bullish = false;
-        int numberOfData = 500;
+		double price = 100d; //input from user
+		double volatility =10d; // input from user
+		double maxPrice = (1.00 + (volatility)/(100d))*price;
+		double minPrice = (1.00 - (volatility)/(100d))*price;
+        //boolean bullish = false;
+        int numberOfData = 5000;
         Random r = new Random();
-        double sum =0d;
-        ArrayList<Double> randomPercent = new ArrayList<>();
+        //double sum =0d;
+        //ArrayList<Double> randomPercent = new ArrayList<>();
         
         for(int i =0; i<numberOfData; i++) {
         	double variationPercent = (r.nextGaussian());
-        	if(variationPercent>2d) variationPercent =2d;
-        	else if(variationPercent<-2d) variationPercent = -2d;
-        	else variationPercent =variationPercent;
-        	System.out.println(variationPercent);
-        	sum += variationPercent;
+        	if(variationPercent>2d) variationPercent = 2d;
+        	if(variationPercent<-2d) variationPercent = -2d;
+        	//else variationPercent =variationPercent;
+//        	System.out.println(variationPercent);
+        	//sum += variationPercent;
         	//System.out.println(sum);
-        	if(sum > volatility || sum < (-1*volatility)) {
-        		variationPercent = (-1*variationPercent);
-            	sum =sum + 2*variationPercent;
-        	}
-        		
-        	System.out.println(sum);
-        	randomPercent.add(variationPercent);
-        	System.out.println("#########################");
+        	double temp = (1.00 + (variationPercent)/(100d))*price;
+        	if(temp > maxPrice || temp < minPrice) variationPercent = (-1*variationPercent);
+        	temp = (1.00 + (variationPercent)/(100d))*price;
+        	price = temp;
+//        	System.out.println(sum);
+        	//randomPercent.add(variationPercent);
+//        	System.out.println("#########################");
+        	System.out.println(price);
         	
         }
         System.out.println("-------------------------------------------");
         
-        for(int i =0; i<numberOfData; i++) {
-        	//price = (1.00 + (randomPercent.get(i)*volatility)/(100d*sum))*price;
-        	price = (1.00 + (randomPercent.get(i))/(100d))*price;
-        	System.out.println(price);
-        }
     	
         
 	}
