@@ -18,7 +18,7 @@ public class ReadFile {
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 			String readRow;
 			while((readRow=bufferedReader.readLine())!=null) {
-				readRows.add(readRow);
+				readRows.add(readRow.trim());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
