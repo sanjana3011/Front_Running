@@ -16,4 +16,8 @@ public interface OrderDAO {
     
     public List<Order[]> detectingFrontRunning(List <Order> orderBook);
     
+    public List<Order> sortByISIN(List <Order> orderBook);
+    
+    public List<Order> sortBySharePrice(List <Order> orderBook);
+    
 }

@@ -21,18 +21,16 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public List<Order[]> detectingFrontRunning(List<Order> orderBook) {
 
-        List<Order> orderList = new ArrayList<>();
-
-        int totalOrders = orderList.size();
+        int totalOrders = orderBook.size();
 
         List<Order[]> possibleFrontRunning = new ArrayList<>();
 
 //        pattern.add(e)
         Order past, present, future;
         for (int i = 0; i < totalOrders - 2; i++) {
-            past = orderList.get(i);
-            present = orderList.get(i + 1);
-            future = orderList.get(i + 2);
+            past = orderBook.get(i);
+            present = orderBook.get(i + 1);
+            future = orderBook.get(i + 2);
             String t1, t2, t3;
 
 //         Here t1,t2,t3 are the trade IDS  
@@ -129,6 +127,16 @@ public class OrderDAOImpl implements OrderDAO {
 
         return possibleFrontRunning;
 
+    }
+
+    @Override
+    public List<Order> sortByISIN(List<Order> orderBook) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Order> sortBySharePrice(List<Order> orderBook) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
