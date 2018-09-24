@@ -17,9 +17,10 @@ import java.util.List;
 public class OrderDAOImpl implements OrderDAO {
 
     public final double basePrice = 10000000;
-    
+
     @Override
-    public List<Order[]> detectingFrontRunning(List <Order> orderBook) {
+    public List<Order[]> detectingFrontRunning(List<Order> orderBook) {
+
         List<Order> orderList = new ArrayList<>();
 
         int totalOrders = orderList.size();
